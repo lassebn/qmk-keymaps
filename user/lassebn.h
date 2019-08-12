@@ -1,6 +1,8 @@
 #define LAYOUT_atreus_grid_wrapper(...) LAYOUT(__VA_ARGS__)
 #define LAYOUT_planck_grid_wrapper(...) LAYOUT_planck_grid(__VA_ARGS__)
 
+#define _______ KC_TRNS
+
 #define ___________________BLANK___________________ KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
 
 /*
