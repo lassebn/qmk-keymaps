@@ -1,21 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "muse.h"
 #include "eeprom.h"
-#include "keymap_german.h"
-#include "keymap_nordic.h"
-#include "keymap_french.h"
-#include "keymap_spanish.h"
-#include "keymap_hungarian.h"
 #include "lassebn.h"
-
-#define KC_MAC_UNDO LGUI(KC_U)
-#define KC_MAC_CUT LGUI(KC_X)
-#define KC_MAC_COPY LGUI(KC_C)
-#define KC_MAC_PASTE LGUI(KC_V)
-#define KC_PC_UNDO LCTL(KC_U)
-#define KC_PC_CUT LCTL(KC_X)
-#define KC_PC_COPY LCTL(KC_C)
-#define KC_PC_PASTE LCTL(KC_V)
 
 enum planck_keycodes {
   RGB_SLD = SAFE_RANGE,
@@ -36,20 +22,36 @@ enum planck_layers {
 #define RAISE MO(_RAISE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
   [_BASE] = LAYOUT_planck_grid_wrapper(
     LCTL_T(KC_TAB)   , _________________QWERTY_L1_________________         , _________________QWERTY_R1_________________               , RCTL_T(KC_BSPACE),
     LGUI_T(KC_ESCAPE), _________________QWERTY_L2_________________         , _________________QWERTY_R2_________________               , RGUI_T(KC_QUOTE),
     KC_LSHIFT        , _________________QWERTY_L3_________________         , _________________QWERTY_R3_________________               , KC_RSHIFT,
-    KC_ESCAPE        , KC_LCTRL , KC_LALT , LALT_T(KC_LGUI) ,LOWER , LT(4,KC_SPACE) , KC_NO , RAISE , LALT_T(KC_LEFT) , KC_DOWN, KC_UP , KC_ENT
-    ),
+    KC_ESCAPE        , KC_LCTRL , KC_LALT , LALT_T(KC_LGUI) ,LOWER , LT(4,KC_SPACE) , KC_NO , RAISE , LALT_T(KC_LEFT) , KC_DOWN, KC_UP , KC_ENT),
 
-  [_LOWER] = LAYOUT_planck_grid(LCTL_T(FR_EXLM),KC_AT,KC_LCBR,KC_RCBR,KC_AMPR,KC_TRANSPARENT,KC_TRANSPARENT,KC_KP_SLASH,KC_7,KC_8,KC_9,RCTL_T(KC_DELETE),KC_TRANSPARENT,KC_DLR,KC_LPRN,KC_RPRN,KC_TILD,KC_TRANSPARENT,KC_TRANSPARENT,KC_PIPE,KC_4,KC_5,KC_6,RGUI_T(KC_KP_MINUS),KC_TRANSPARENT,KC_TRANSPARENT,KC_LBRACKET,KC_RBRACKET,KC_GRAVE,KC_TRANSPARENT,KC_TRANSPARENT,KC_BSLASH,KC_1,KC_2,KC_3,RSFT_T(FR_PLUS),KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_0,KC_TRANSPARENT,KC_EQUAL,KC_TRANSPARENT),
+  [_LOWER] = LAYOUT_planck_grid_wrapper(
+    LCTL_T(KC_EXLM), _____________NUMS_AND_SYMS_L1______________, _____________NUMS_AND_SYMS_R1______________, RCTL_T(KC_DELETE),
+    _______,         _____________NUMS_AND_SYMS_L2______________, _____________NUMS_AND_SYMS_R2______________, RGUI_T(KC_KP_MINUS),
+    _______,         _____________NUMS_AND_SYMS_L3______________, _____________NUMS_AND_SYMS_R3______________, RSFT_T(KC_PLUS),
+    _______,         ___________________BLANK___________________, KC_NO, _______, KC_0, _______, KC_EQUAL,     _______),
 
-  [_RAISE] = LAYOUT_planck_grid(KC_TRANSPARENT,KC_F9,KC_F10,KC_F11,KC_F12,KC_TRANSPARENT,KC_PGUP,KC_AUDIO_VOL_DOWN,KC_TRANSPARENT,KC_AUDIO_VOL_UP,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_F5,KC_F6,KC_F7,KC_F8,KC_TRANSPARENT,KC_PGDOWN,KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_MEDIA_NEXT_TRACK,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_F1,KC_F2,KC_F3,KC_F4,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT),
+  [_RAISE] = LAYOUT_planck_grid_wrapper(
+    _______, ________________FUNCTION_L1________________, ________________FUNCTION_R1________________, _______,
+    _______, ________________FUNCTION_L2________________, ________________FUNCTION_R2________________, _______,
+    _______, ________________FUNCTION_L3________________, ___________________BLANK___________________, _______,
+    _______, _______, _______, _______, _______, _______, KC_NO, _______, _______, _______, _______,   _______),
 
-  [_ADJUST] = LAYOUT_planck_grid(KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,AU_ON,AU_OFF,AU_TOG,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,MU_ON,MU_OFF,MU_TOG,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,RESET),
+  [_ADJUST] = LAYOUT_planck_grid_wrapper(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, AU_ON,   AU_OFF,  AU_TOG,  _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, MU_ON,   MU_OFF,  MU_TOG,  _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, KC_NO,   _______, _______, _______, _______, RESET),
 
-  [_LAYER4] = LAYOUT_planck_grid(KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_PGUP,LGUI(KC_LEFT),KC_UP,RGUI(KC_RIGHT),KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_PGDOWN,KC_LEFT,KC_DOWN,KC_RIGHT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_NO,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT,KC_TRANSPARENT),
+  [_LAYER4] = LAYOUT_planck_grid_wrapper(
+    _______, ___________________BLANK___________________, _______________NAVIGATION_R1_______________, _______,
+    _______, ___________________BLANK___________________, _______________NAVIGATION_R1_______________, _______,
+    _______, ___________________BLANK___________________, ___________________BLANK___________________, _______,
+    _______, _______, _______, _______, _______, _______, KC_NO,_______, _______, _______, _______,    _______),
 
 };
 
