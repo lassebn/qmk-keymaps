@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.4
+
+    steps:
+      - checkout
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
+      - run: git submodule update --init
+      - run: sudo apt update
+      - run: sudo apt install ruby-full
+      - run:
+          name: Install QMK
+          command: |
+            rake qmk:update
+            rake qmk:install
+      - run:
+          name: Build layouts
+          command: rake ci
+      - store_artifacts:
+          path: ~/project/qmk_firmware/.build
+          destination: keyboard_layouts

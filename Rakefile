@@ -48,7 +48,7 @@ namespace :qmk do
   desc 'Update QMK firmware'
   task :update do
     Dir.chdir(QMK_DIR) do
-      sh 'git pull --ff-only'
+      sh 'git pull origin master --ff-only'
       sh 'make git-submodule'
     end
   end
