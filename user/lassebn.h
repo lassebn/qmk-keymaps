@@ -1,3 +1,5 @@
+#define TAPPING_TERM 150
+
 #define LAYOUT_atreus_grid_wrapper(...) LAYOUT(__VA_ARGS__)
 #define LAYOUT_planck_grid_wrapper(...) LAYOUT_planck_grid(__VA_ARGS__)
 
@@ -46,7 +48,7 @@
 #define _____________NUMS_AND_SYMS_L3______________ KC_LSHIFT, KC_CIRC, KC_LBRC, KC_RBRC, KC_GRV
 
 #define _____________NUMS_AND_SYMS_R1______________ KC_SLSH, KC_7,    KC_8,   KC_9,   KC_TRNS
-#define _____________NUMS_AND_SYMS_R2______________ KC_PIPE, KC_4,    KC_5,   KC_6,   KC_DOT
+#define _____________NUMS_AND_SYMS_R2______________ KC_PIPE, KC_4,    KC_5,   KC_6,   GUI_T(KC_DOT)
 #define _____________NUMS_AND_SYMS_R3______________ KC_BSLS, KC_1,    KC_2,   KC_3,   KC_0
 
 /*
