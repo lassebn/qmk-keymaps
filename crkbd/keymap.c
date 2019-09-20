@@ -38,18 +38,18 @@ enum macro_keycodes {
   KC_SAMPLEMACRO,
 };
 
-#define KC______    KC_TRNS
-#define KC_XXXXX    KC_NO
-#define KC_NAV      NAV
-#define KC_NUMSYM   NUMSYM
-#define KC_FUNCTION FUNCTION
-#define KC_RST      RESET
-#define KC_NUTAB    LT(_NUMSYM, KC_TAB)
-#define KC_ALTBSP   ALT_T(KC_BSPC)
-#define KC_NAVEQL   LT(_NAVIGATION, KC_EQL)
-#define KC_SPCFUN   LT(_FUNCTION, KC_SPC)
-#define KC_MC_HM   LGUI(KC_LEFT)
-#define KC_MC_END   LGUI(KC_RIGHT)
+#define KC_______    KC_TRNS
+#define KC_XXXXX     KC_NO
+#define KC_NAV       NAV
+#define KC_NUMSYM    NUMSYM
+#define KC_FUNCTION  FUNCTION
+#define KC_RST       RESET
+#define KC_NUTAB     LT(_NUMSYM, KC_TAB)
+#define KC_ALTBSP    ALT_T(KC_BSPC)
+#define KC_NAVEQL    LT(_NAVIGATION, KC_EQL)
+#define KC_SPCFUN    LT(_FUNCTION, KC_SPC)
+#define KC_MC_HM     LGUI(KC_LEFT)
+#define KC_MC_END    LGUI(KC_RIGHT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NAVIGATION] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-     ______,______,______,______,______,______,                   PGUP, MC_HJ,  UP  ,MC_END,______,______,\
+     ______,______,______,______,______,______,                   PGUP, MC_HM,  UP  ,MC_END,______,______,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
      ______,______,______,______,______,______,                   PGDN,  LEFT,  DOWN, RIGHT,______,______,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FUNCTION] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-     ______,______,  F9  , F10  , F11  , F12  ,                 ______, VOLD ,______, VULU ,______,______,\
+     ______,______,  F9  , F10  , F11  , F12  ,                 ______, VOLD ,______, VOLU ,______,______,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
      ______,______,  F5  ,  F6  ,  F7  ,  F8  ,                 ______, MRWD , MPLY , MFFD ,______,______,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
