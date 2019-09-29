@@ -168,38 +168,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
     // set_timelog();
   }
-
-  switch (keycode) {
-    case QWERTY:
-      if (record->event.pressed) {
-        persistent_default_layer_set(1UL<<_QWERTY);
-      }
-      return false;
-      break;
-    case NAV:
-      if (record->event.pressed) {
-        layer_on(_NAVIGATION);
-      } else {
-        layer_off(_NAVIGATION);
-      }
-      return false;
-      break;
-    case NUMSYM:
-      if (record->event.pressed) {
-        layer_on(_NUMSYM);
-      } else {
-        layer_off(_NUMSYM);
-      }
-      return false;
-      break;
-    case FUNCTION:
-        if (record->event.pressed) {
-          layer_on(_FUNCTION);
-        } else {
-          layer_off(_FUNCTION);
-        }
-        return false;
-        break;
-  }
   return true;
 }
