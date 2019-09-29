@@ -50,15 +50,18 @@ enum macro_keycodes {
 #define KC_SPCFUN    LT(_FUNCTION, KC_SPC)
 #define KC_MC_HM     LGUI(KC_LEFT)
 #define KC_MC_END    LGUI(KC_RIGHT)
+#define KC_GUIMIN    GUI_T(KC_MINS)
+#define KC_SHIQUO    SFT_T(KC_QUOT)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
       LCTRL,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P, RCTRL,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LGUI,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  RGUI,\
+       LGUI,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,GUIMIN,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
+       LSFT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,SHIQUO,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
                                    ESC ,ALTBSP, NUTAB,   NAVEQL,SPCFUN,  ENT  \
                               //`--------------------'  `--------------------'
