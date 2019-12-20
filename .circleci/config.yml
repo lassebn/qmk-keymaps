@@ -19,6 +19,3 @@ jobs:
       - run:
           name: Build layouts
           command: rake ci
-      - store_artifacts:
-          path: ~/project/qmk_firmware/.build
-          destination: keyboard_layouts
