@@ -5,6 +5,7 @@ KEYBOARDS = {
   'atreus' => [nil],
   'crkbd'        => [nil],
   'planck'        => ['rev4'],
+  'kyria' => [nil]
 }
 QMK_DIR   = "#{__dir__}/qmk_firmware"
 USER_DIR  = "#{QMK_DIR}/users/#{USERNAME}"
